@@ -1,2 +1,5 @@
 /csvFiles/
 /serializedFiles/
+*.csv
+*.rdf
+*.json
