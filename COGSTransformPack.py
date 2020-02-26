@@ -378,7 +378,7 @@ def create_rdf(dataframe_collection):
         my_pb2_calc += 1
         img_prgress_bar_2.value = my_pb2_calc
 
-        token=("87f72dc1f56280d0a3c423ec99ee9c9ffc60da6a") # For one user who has access to one GIT directory.
+        token=("aa16f221b7d3168db8053bd74d4a6fabac79de60") # For one user who has access to one GIT directory.
         g=Github(login_or_token=token)#,base_url=url)
         #display(g)
         g.get_user()
