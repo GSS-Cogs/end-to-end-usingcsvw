@@ -90,6 +90,7 @@ def boo_pythonNB_environment():
 # Simple display of DataFrame Collections.
 # Paramaters: dataframe_collection, row_display_limit blah blah to update...
 # Dependencies: printmd
+# Revision: Displaying 10 of 5 rows bug fixed - M. Spooner (26/02/20)
 def display_DF_collection(dataframe_collection, str_title = None, row_display_limit = 10):
     if str_title != None:
         printmd("\n" + "="*115, colour='Grey')
@@ -97,10 +98,14 @@ def display_DF_collection(dataframe_collection, str_title = None, row_display_li
         printmd("="*115, colour='Grey')       
     for key in dataframe_collection.keys():
         printmd("\n" + "="*115, colour='Grey')
-        printmd('**' + key + '**' + ' *: First ' + str(row_display_limit) + ' records displayed of*' + ' ' + str(dataframe_collection[key].shape[0]) + ' records.', colour='Blue')
+        if row_display_limit < dataframe_collection[key].shape[0]:
+            printmd('**' + key + '**' + ' *: First ' + str(row_display_limit) + ' records displayed of*' + ' ' + str(dataframe_collection[key].shape[0]) + ' records.', colour='Blue')
+        else:
+            printmd('**' + key + '**' + ' *: All ' + str(dataframe_collection[key].shape[0]) + ' records displayed.*', colour='Blue')
         printmd("="*115, colour='Grey')
         #print(dataframe_collection[key]) #Print like this for Logs...  
         display(dataframe_collection[key].head(row_display_limit))
+
 
 
 # In[7]:
